@@ -1,1 +1,26 @@
-/cmake-build-debug/
+# 编译生成文件
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.cmake
+*.o
+*.a
+*.so
+*.exe
+*.out
+*.obj
+*.log
+
+# CLion 配置
+.idea/
+*.iml
+
+# 用户设置
+*.user
+*.user.*
+
+# 系统文件
+.DS_Store
+Thumbs.db

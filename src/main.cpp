@@ -1,4 +1,5 @@
 
+#include <cassert>
 #include <csignal>
 #include <fstream>
 #include <iostream>
@@ -129,8 +130,9 @@ bool load_config(const std::string &filename, int &port, std::string &ip,
     if (!infile.is_open())
         return false;
     std::getline(infile, ip);
-    infile >> port;
-    infile.ignore();
+    std::string port_str;
+    std::getline(infile, port_str);
+    port = std::stoi(port_str);
     std::getline(infile, root_dir);
     return true;
 }
@@ -144,6 +146,7 @@ int main() {
         std::cerr << "Failed to load config.ini. Using default settings."
                   << std::endl;
     }
+    assert(main_directory=="../static");
 #ifdef _WIN32
     WSADATA wsaData;
     // 初始化Winsock环境
